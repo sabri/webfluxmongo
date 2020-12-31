@@ -28,7 +28,7 @@ public class WebfluxmongoApplication {
                            .subscribe(societe -> System.out.println(societe.toString())));
 
                     });
-
+        transactionRepository.deleteAll().subscribe(null,null,()->{
            Stream.of("AF","STEG","SOUND","TELECOM").forEach(sc ->
                societeRepository.findById(sc).subscribe( soc -> {
                for (int i = 0; i < 10; i++) {
@@ -40,7 +40,8 @@ public class WebfluxmongoApplication {
 
                }
 
-           }));
+           }));}
+           );
 
 
 

@@ -1,5 +1,7 @@
 package com.sabrouch.webfluxmongo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,5 +27,6 @@ public class Transaction {
     private Instant instant;
     private double  price;
     @DBRef
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Societe societe;
 }
